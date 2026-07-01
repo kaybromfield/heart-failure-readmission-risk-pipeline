@@ -120,13 +120,15 @@ heart-failure-readmission-risk-pipeline/
 
 **API Example request:**
 
-<img width="758" height="587" alt="input" src="https://github.com/user-attachments/assets/2f70df43-4fe9-4bc3-a517-45ca82e9c48d" />
+<img width="758" height="587" alt="input" src="https://github.com/user-attachments/assets/2223f97f-26b3-4fef-b326-1170f7f3f7cf" />
+
 
 
 
 **API Example response:**
 
-<img width="750" height="135" alt="result" src="https://github.com/user-attachments/assets/a546c956-3cd0-46c9-9a40-89238358bfd8" />
+<img width="750" height="135" alt="result" src="https://github.com/user-attachments/assets/7d938eda-b3d5-4584-b941-52c77a91227d" />
+
 
 
 
