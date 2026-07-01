@@ -119,29 +119,13 @@ heart-failure-readmission-risk-pipeline/
 | GET | `/` | Root — links to docs and health check |
 
 **Example request:**
-```json
-{
-  "length_of_stay_days": 7,
-  "married_flag": 0,
-  "hypertension_flag": 1,
-  "ckd_flag": 1,
-  "diabetes_flag": 1,
-  "avg_creatinine": 1.8,
-  "avg_sodium": 135,
-  "avg_hemoglobin": 9.8,
-  "abnormal_lab_ratio": 0.45
-}
-```
+
+<img width="751" height="720" alt="input" src="https://github.com/user-attachments/assets/fb07cbb0-ad42-4fb1-bea4-5eb7e528aa4a" />
+
 
 **Example response:**
-```json
-{
-  "xgboost_risk_score": 0.367,
-  "logistic_risk_score": 0.479,
-  "predicted_median_days_to_readmission": null,
-  "risk_tier": "medium"
-}
-```
+<img width="807" height="431" alt="result" src="https://github.com/user-attachments/assets/92b0056e-65c4-4112-8004-e7b9eaf97d05" />
+
 
 ---
 
