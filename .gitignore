@@ -1,0 +1,18 @@
+# Data files - PHI adjacent, never push
+*.csv
+*.pkl
+*.pickle
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+
+# AWS credentials - never push
+.aws/
+
+# Mac
+.DS_Store

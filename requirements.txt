@@ -1,0 +1,10 @@
+pandas
+numpy
+boto3
+joblib
+xgboost
+statsmodels
+lifelines
+fastapi
+uvicorn[standard]
+pydantic
