@@ -118,13 +118,16 @@ heart-failure-readmission-risk-pipeline/
 | POST | `/predict-readmission-risk` | Score a single patient, returns risk scores + tier |
 | GET | `/` | Root — links to docs and health check |
 
-**Example request:**
+**API Example request:**
 
-<img width="751" height="720" alt="input" src="https://github.com/user-attachments/assets/fb07cbb0-ad42-4fb1-bea4-5eb7e528aa4a" />
+<img width="758" height="587" alt="input" src="https://github.com/user-attachments/assets/2f70df43-4fe9-4bc3-a517-45ca82e9c48d" />
 
 
-**Example response:**
-<img width="807" height="431" alt="result" src="https://github.com/user-attachments/assets/92b0056e-65c4-4112-8004-e7b9eaf97d05" />
+
+**API Example response:**
+
+<img width="750" height="135" alt="result" src="https://github.com/user-attachments/assets/a546c956-3cd0-46c9-9a40-89238358bfd8" />
+
 
 
 ---
