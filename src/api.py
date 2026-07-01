@@ -59,31 +59,30 @@ def load_models():
 # ============================================
 class PatientFeatures(BaseModel):
     """
-    One patient's input features. Field validation happens automatically --
-    FastAPI will reject malformed requests (wrong types, missing required
-    fields) before this data ever reaches the model.
+    Patient input features for readmission risk scoring.
+    Accepts the 12 most statistically significant predictors identified
+    in the upstream hospital-readmission-risk-model analysis.
+    Field validation happens automatically -- FastAPI will reject
+    malformed requests before data ever reaches the model.
     """
+    # Clinical features
     length_of_stay_days: float = Field(..., ge=0, description="Length of hospital stay in days")
-    married_flag: int = Field(..., ge=0, le=1)
-    hypertension_flag: int = Field(0, ge=0, le=1)
-    afib_flag: int = Field(0, ge=0, le=1)
-    ischemic_hd_flag: int = Field(0, ge=0, le=1)
-    valvular_hd_flag: int = Field(0, ge=0, le=1)
-    ckd_flag: int = Field(0, ge=0, le=1)
-    diabetes_flag: int = Field(0, ge=0, le=1)
-    copd_flag: int = Field(0, ge=0, le=1)
-    anemia_flag: int = Field(0, ge=0, le=1)
-    sleep_disorder_flag: int = Field(0, ge=0, le=1)
-    obesity_flag: int = Field(0, ge=0, le=1)
-    depression_flag: int = Field(0, ge=0, le=1)
-    cancer_flag: int = Field(0, ge=0, le=1)
-    thyroid_flag: int = Field(0, ge=0, le=1)
-    avg_creatinine: float = Field(..., ge=0)
-    avg_sodium: float = Field(..., ge=0)
-    avg_hemoglobin: float = Field(..., ge=0)
-    abnormal_lab_ratio: float = Field(..., ge=0, le=1)
-    insurance_Private: int = Field(0, ge=0, le=1)
-    gender: Optional[str] = Field(None, description="e.g. 'M' or 'F'")
+    abnormal_lab_ratio: float = Field(..., ge=0, le=1, description="Proportion of lab results flagged abnormal (0-1)")
+    avg_creatinine: float = Field(..., ge=0, description="Average serum creatinine level (mg/dL)")
+    avg_hemoglobin: float = Field(..., ge=0, description="Average hemoglobin level (g/dL)")
+    avg_sodium: float = Field(..., ge=0, description="Average serum sodium level (mEq/L)")
+
+    # Comorbidity flags (0 = absent, 1 = present)
+    cancer_flag: int = Field(0, ge=0, le=1, description="Active cancer diagnosis")
+    ckd_flag: int = Field(0, ge=0, le=1, description="Chronic kidney disease")
+    depression_flag: int = Field(0, ge=0, le=1, description="Depression diagnosis")
+    diabetes_flag: int = Field(0, ge=0, le=1, description="Diabetes diagnosis")
+    hypertension_flag: int = Field(0, ge=0, le=1, description="Hypertension diagnosis")
+    valvular_hd_flag: int = Field(0, ge=0, le=1, description="Valvular heart disease")
+
+    # Socioeconomic features
+    married_flag: int = Field(0, ge=0, le=1, description="Marital status (1 = married)")
+    insurance_Private: int = Field(0, ge=0, le=1, description="Private insurance (1 = yes)")
 
     class Config:
         extra = "allow"  # allow additional columns the model may use without rejecting the request
